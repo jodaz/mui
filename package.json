@@ -1,5 +1,5 @@
 {
-  "name": "mui-extended",
+  "name": "@jodaz/mui",
   "version": "0.5.0",
   "description": "",
   "main": "build/index.js",
