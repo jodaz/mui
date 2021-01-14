@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   makeStyles,
   Card,
@@ -18,7 +19,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function (props) {
+interface Props {
+  circular: String
+}
+
+const CardProgress: React.FC<Props> = (props) => {
   const { circular } = props;
   const classes = useStyles();
 
@@ -30,3 +35,5 @@ export default function (props) {
     </Card>
   );
 }
+
+export default CardProgress;
