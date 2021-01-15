@@ -6,18 +6,18 @@ import {
 } from '@material-ui/core';
 
 interface Props {
-  width: Number,
-  height: Number,
-  borderWidth: Number,
-  type: String,
-  backgroundColor: String[],
-  borderColor: String[],
-  data: Number[],
-  labels: String[],
-  chartLabel: String
-}
+  width: string,
+  height: string,
+  borderWidth: number,
+  type: string,
+  backgroundColor: string[],
+  borderColor: string[],
+  data: number[],
+  labels: string[],
+  chartLabel: string
+};
 
-const Chart: React.FC<Props> = (props) => {
+const CardChard: React.FC<Props> = (props) => {
   const {
     height,
     width,
@@ -30,9 +30,9 @@ const Chart: React.FC<Props> = (props) => {
   } = props;
 
   React.useEffect(() => {
-    const ctx = document.getElementById('chart');
+    const canvas = document.getElementById('chart') as HTMLCanvasElement;
 
-    new Chart(ctx, {
+    new Chart(canvas, {
       type: type,
       data: {
         labels: labels,
@@ -53,6 +53,6 @@ const Chart: React.FC<Props> = (props) => {
       </CardContent>
     </Card>
   );
-
 };
 
+export default CardChard;
