@@ -1,5 +1,5 @@
 {
-  "name": "@jodaz/mui",
+  "name": "mui-extra",
   "version": "0.5.0",
   "description": "Custom material-ui components",
   "main": "build/index.js",
@@ -17,12 +17,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jodaz/mui.git"
+    "url": "https://github.com/jodaz/mui-extra.git"
   },
   "bugs": {
-    "url": "https://github.com/jodaz/mui/issues"
+    "url": "https://github.com/jodaz/mui-extra/issues"
   },
-  "homepage": "https://github.com/jodaz/mui",
+  "homepage": "https://github.com/jodaz/mui-extra",
   "devDependencies": {
     "@material-ui/core": "^4.11.2",
     "@types/chart.js": "^2.9.29",
