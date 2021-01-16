@@ -17,11 +17,12 @@ interface Props {
   chartLabel: string
 };
 
-const CardChard: React.FC<Props> = (props) => {
+const CardChart: React.FC<Props> = (props) => {
   const {
     height,
     width,
     borderWidth,
+    backgroundColor,
     borderColor,
     type,
     labels,
@@ -38,6 +39,7 @@ const CardChard: React.FC<Props> = (props) => {
         labels: labels,
         datasets: [{
           data: data,
+          backgroundColor: backgroundColor,
           label: chartLabel,
           borderColor: borderColor,
           borderWidth: borderWidth
@@ -55,4 +57,4 @@ const CardChard: React.FC<Props> = (props) => {
   );
 };
 
-export default CardChard;
+export default CardChart;
