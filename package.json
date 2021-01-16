@@ -24,10 +24,12 @@
   },
   "homepage": "https://github.com/jodaz/mui-extra",
   "devDependencies": {
-    "@material-ui/core": "^4.11.2",
     "@types/chart.js": "^2.9.29",
-    "chart.js": "^2.9.4",
     "typescript": "^4.1.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2"
+  }
 }
