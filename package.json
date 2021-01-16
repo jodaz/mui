@@ -1,8 +1,8 @@
 {
   "name": "mui-extra",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Custom material-ui components",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx tsc",
