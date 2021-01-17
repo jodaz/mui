@@ -2,9 +2,25 @@ import * as React from 'react';
 import Chart from 'chart.js';
 import {
   Card,
-  CircularProgress,
-  CardContent
+  Typography,
+  CardContent,
+  makeStyles
 } from '@material-ui/core';
+import CardProgress from './CardProgress';
+
+const colors = [
+  '#d63031', '#FFC312', '#C4E538', '#12CBC4', '#FDA7DF', '#ED4C67',
+  '#F79F1F', '#A3CB38', '#1289A7', '#D980FA', '#B53471', '#EE5A24',
+  '#009432', '#0652DD', '#9980FA', '#833471', '#EA2027', '#006266',
+  '#1B1464', '#5758BB', '#6F1E51'
+];
+
+const useStyles = makeStyles(() => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+}));
 
 interface Props {
   loading: boolean,
@@ -12,24 +28,23 @@ interface Props {
   height: string,
   borderWidth: number,
   type: string,
-  backgroundColor: string[],
-  borderColor: string[],
   data: number[],
   labels: string[],
-  chartLabel: string
+  name: string
 };
 
-const CardChard: React.FC<Props> = ({
+const CardChart: React.FC<Props> = ({
     loading,
     height,
     width,
     borderWidth,
-    borderColor,
     type,
     labels,
     data,
-    chartLabel
+    name
   }) => {
+
+  const classes = useStyles();
 
   React.useEffect(() => {
     if (!loading) {
@@ -41,8 +56,8 @@ const CardChard: React.FC<Props> = ({
           labels: labels,
           datasets: [{
             data: data,
-            label: chartLabel,
-            borderColor: borderColor,
+            backgroundColor: colors,
+            borderColor: colors,
             borderWidth: borderWidth
           }]
         }
@@ -51,14 +66,20 @@ const CardChard: React.FC<Props> = ({
   }, [loading]);
 
   return (
-    <Card>
-      <CardContent>
-        { (loading) && <CircularProgress />}
-
-        <canvas id="chart" width={width} height={height} />
-      </CardContent>
-    </Card>
+    <React.Fragment>
+      { (!loading) ?
+        <Card>
+          <CardContent className={classes.root}>
+            <Typography component="h6" variant="h6">
+              {name}
+            </Typography>
+            <canvas id="chart" width={width} height={height} />
+          </CardContent>
+        </Card>
+        : <CardProgress circular/>
+      }
+    </React.Fragment>
   );
 };
 
-export default CardChard;
+export default CardChart;
