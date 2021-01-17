@@ -1,6 +1,6 @@
 {
   "name": "mui-extra",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Custom material-ui components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,7 @@
     "build": "npx tsc",
     "prepare": "npm-install-peers",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "material-ui",
