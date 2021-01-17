@@ -8,7 +8,7 @@
     "build": "npx tsc",
     "prepare": "npm-install-peers",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "material-ui",
