@@ -2,10 +2,12 @@ import * as React from 'react';
 import Chart from 'chart.js';
 import {
   Card,
+  CircularProgress,
   CardContent
 } from '@material-ui/core';
 
 interface Props {
+  loading: boolean,
   width: string,
   height: string,
   borderWidth: number,
@@ -17,8 +19,8 @@ interface Props {
   chartLabel: string
 };
 
-const CardChard: React.FC<Props> = (props) => {
-  const {
+const CardChard: React.FC<Props> = ({
+    loading,
     height,
     width,
     borderWidth,
@@ -27,28 +29,32 @@ const CardChard: React.FC<Props> = (props) => {
     labels,
     data,
     chartLabel
-  } = props;
+  }) => {
 
   React.useEffect(() => {
-    const canvas = document.getElementById('chart') as HTMLCanvasElement;
+    if (!loading) {
+      const canvas = document.getElementById('chart') as HTMLCanvasElement;
 
-    new Chart(canvas, {
-      type: type,
-      data: {
-        labels: labels,
-        datasets: [{
-          data: data,
-          label: chartLabel,
-          borderColor: borderColor,
-          borderWidth: borderWidth
-        }]
-      }
-    });
-  });
+      new Chart(canvas, {
+        type: type,
+        data: {
+          labels: labels,
+          datasets: [{
+            data: data,
+            label: chartLabel,
+            borderColor: borderColor,
+            borderWidth: borderWidth
+          }]
+        }
+      });
+    }
+  }, [loading]);
 
   return (
     <Card>
       <CardContent>
+        { (loading) && <CircularProgress />}
+
         <canvas id="chart" width={width} height={height} />
       </CardContent>
     </Card>
