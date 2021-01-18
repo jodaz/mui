@@ -41,14 +41,14 @@ interface Props {
   handleClick: any
 }
 
-const InfoCard: React.FC<Props> = (props) => {
-  const {
+const CardButton: React.FC<Props> = ({
     loading,
     title,
     total,
     icon,
     handleClick
-  } = props;
+  }) => {
+
   const classes = useStyles();
 
   return (
@@ -80,4 +80,4 @@ const InfoCard: React.FC<Props> = (props) => {
   )
 };
 
-export default InfoCard;
+export default CardButton;
