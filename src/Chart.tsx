@@ -45,23 +45,26 @@ const CardChart: React.FC<Props> = ({
   }) => {
 
   const classes = useStyles();
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   React.useEffect(() => {
-    if (!loading) {
-      const canvas = document.getElementById('chart') as HTMLCanvasElement;
+    if (!loading && canvasRef.current) {
+      const context = canvasRef.current.getContext("2d");
 
-      new Chart(canvas, {
-        type: type,
-        data: {
-          labels: labels,
-          datasets: [{
-            data: data,
-            backgroundColor: colors,
-            borderColor: colors,
-            borderWidth: borderWidth
-          }]
-        }
-      });
+      if (context) {
+        new Chart(context, {
+          type: type,
+          data: {
+            labels: labels,
+            datasets: [{
+              data: data,
+              backgroundColor: colors,
+              borderColor: colors,
+              borderWidth: borderWidth
+            }]
+          }
+        });
+      }
     }
   }, [loading]);
 
@@ -73,7 +76,7 @@ const CardChart: React.FC<Props> = ({
             <Typography component="h6" variant="h6">
               {name}
             </Typography>
-            <canvas id="chart" width={width} height={height} />
+            <canvas ref={canvasRef} width={width} height={height} />
           </CardContent>
         </Card>
         : <CardProgress circular/>
