@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface Props {
-  circular: String
+  circular: boolean
 }
 
 const CardProgress: React.FC<Props> = (props) => {
