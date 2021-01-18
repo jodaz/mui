@@ -1,6 +1,6 @@
 {
   "name": "mui-extra",
-  "version": "0.5.6",
+  "version": "0.6.0",
   "description": "Custom material-ui components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -24,9 +24,11 @@
     "url": "https://github.com/jodaz/mui-extra/issues"
   },
   "homepage": "https://github.com/jodaz/mui-extra",
-  "devDependencies": {
+  "dependencies": {
     "@types/chart.js": "^2.9.29",
-    "chart.js": "^2.9.4",
+    "chart.js": "^2.9.4"
+  },
+  "devDependencies": {
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
