@@ -2,51 +2,63 @@ import * as React from 'react';
 import {
   Dialog,
   Button,
-  DialogTitle,
-  DialogActions
+  DialogActions,
 } from '@material-ui/core';
 import IconCancel from '@material-ui/icons/Cancel';
 import IconCheck from '@material-ui/icons/CheckCircleOutline';
 
 interface Props {
-  title: string,
-  ariaLabel: string,
-  fullWidth: boolean,
+  open: boolean,
   handleClick: any,
-  submitLabel: string,
-  action: any,
-  open: boolean
+  title?: string,
+  fullWidth?: boolean,
+  submitLabel?: string,
+  action?: any,
+  header?: React.ReactNode,
+  children?: React.ReactNode,
+  classes?: any,
+  showCancel?: boolean
 };
 
 const CustomDialog: React.FC<Props> = ({
-  title,
-  ariaLabel,
+  header,
   fullWidth,
   handleClick,
   submitLabel,
   action,
-  open
+  children,
+  open,
+  showCancel,
+  classes
 }) => {
   return (
     <Dialog
       fullWidth={fullWidth}
       open={open}
       onClose={handleClick}
-      aria-label={ariaLabel}
+      className={classes.root}
     >
-      <DialogTitle>{title}</DialogTitle>
+      {header}
+      {children}
       <DialogActions>
-        <Button onClick={handleClick}>
-          <IconCancel />
-          {' Cancelar'}
-        </Button>
+        { (showCancel) && (
+          <Button
+            onClick={handleClick}
+            className={classes.cancelButton}
+          >
+            <IconCancel />
+            {' Cancelar'}
+          </Button>
+        )}
+
         <Button
           variant="contained"
           color="primary"
           onClick={() => {
+            action(); 
             handleClick();
-            action();
           }}
+          className={classes.submitButtom}
         >
           <IconCheck />
           {submitLabel ? submitLabel : 'Enviar'}
