@@ -1,6 +1,6 @@
 {
   "name": "mui-extra",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Custom material-ui components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
