@@ -28,15 +28,13 @@ const CustomDialog: React.FC<Props> = ({
   action,
   children,
   open,
-  showCancel,
-  classes
+  showCancel
 }) => {
   return (
     <Dialog
       fullWidth={fullWidth}
       open={open}
       onClose={handleClick}
-      className={classes.root}
     >
       {header}
       {children}
@@ -44,7 +42,6 @@ const CustomDialog: React.FC<Props> = ({
         { (showCancel) && (
           <Button
             onClick={handleClick}
-            className={classes.cancelButton}
           >
             <IconCancel />
             {' Cancelar'}
@@ -58,7 +55,6 @@ const CustomDialog: React.FC<Props> = ({
             action(); 
             handleClick();
           }}
-          className={classes.submitButtom}
         >
           <IconCheck />
           {submitLabel ? submitLabel : 'Enviar'}
